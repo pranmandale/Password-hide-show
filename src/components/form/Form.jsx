@@ -10,6 +10,8 @@ function Form() {
 
   const [ch, setCh] = useState(false);
 
+  const [greet, setGreet] = useState(false);
+
   const showPassword = () => {
     setShow(prevState => !prevState);
   };
@@ -35,12 +37,13 @@ function Form() {
     setTimeout(() => {
       setProcess(false);
     }, 4000); 
+    setGreet(true);
   };
 
   return (
     <div className='flex items-center justify-center min-h-screen bg-gray-600'>
       <div className='flex flex-col items-center bg-white p-6 rounded-lg shadow-md w-full max-w-sm'>
-        <h1 className='text-2xl font-bold text-gray-800 mb-4'>{process ? "Processing" : "Login"}</h1>
+        <h1 className='text-2xl font-bold text-gray-800 mb-4'>{process? "Process ho raha hai wait karo": "Login"}</h1>
         
         <form onSubmit={handleSubmit} className='w-full'>
           <label htmlFor='email' className='font-semibold p-2 text-xl'>Email</label>
