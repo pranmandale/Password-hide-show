@@ -80,7 +80,7 @@ function Form() {
             className='bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-700 w-full'
             onClick={Msg}
           >
-            {msg ? ch?"sabbas": "submit" : "data to daal beta!"}
+            {msg ? ch?"sabbas": "submit" : "data to daalo beta!"}
           </button>
         </form>
       </div>
