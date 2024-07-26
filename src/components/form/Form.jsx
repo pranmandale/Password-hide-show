@@ -29,6 +29,7 @@ function Form() {
             className='p-2 border border-gray-400 rounded-lg w-full mb-4'
             placeholder='Email'
             type='email'
+            required
           />
 
           <label htmlFor='password' className='font-semibold p-2 text-xl'>Password</label>
@@ -38,6 +39,7 @@ function Form() {
               className='p-2 border border-gray-400 rounded-lg w-full'
               placeholder='Password'
               type={show ? 'text' : 'password'}
+              required
             />
             <button
               type='button'
