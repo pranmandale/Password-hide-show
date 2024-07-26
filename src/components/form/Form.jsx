@@ -3,18 +3,38 @@ import React, { useState } from 'react';
 function Form() {
   const [show, setShow] = useState(false);
   const [process, setProcess] = useState(false);
+  const [msg ,setMsg] = useState(true);
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const [ch, setCh] = useState(false);
 
   const showPassword = () => {
     setShow(prevState => !prevState);
   };
 
+  const Msg = () => {
+    if (!(email && password)) {
+      setMsg(false);
+    }
+    else {
+      setCh(true)
+    }
+
+    setTimeout (() => {
+      setMsg(true);
+    },2000)
+  }
+
   const handleSubmit = (e) => {
 
+    e.preventDefault();
     setProcess(true);
     
     setTimeout(() => {
       setProcess(false);
-    }, 2000); 
+    }, 4000); 
   };
 
   return (
@@ -29,6 +49,9 @@ function Form() {
             className='p-2 border border-gray-400 rounded-lg w-full mb-4'
             placeholder='Email'
             type='email'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            
             required
           />
 
@@ -38,7 +61,9 @@ function Form() {
               id='password'
               className='p-2 border border-gray-400 rounded-lg w-full'
               placeholder='Password'
+              value={password}
               type={show ? 'text' : 'password'}
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
             <button
@@ -53,8 +78,9 @@ function Form() {
           <button
             type='submit'
             className='bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-700 w-full'
+            onClick={Msg}
           >
-            Submit
+            {msg ? ch?"sabbas": "submit" : "data to daal beta!"}
           </button>
         </form>
       </div>
